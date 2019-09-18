@@ -1,0 +1,68 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure Button3Click(Sender: TObject);
+    function alphabend: boolean;
+    function alphabendvalue: integer;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var x, y: real;
+    pos: TPoint;
+begin
+  x:= 200;
+  y:= 300;
+  SetCursorPos(round(x), round(y));
+  {mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
+  mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);}
+
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  form1.height:=screen.height;
+  form1.width:=screen.width;
+  form1.alphabend:=true;
+  form1.alphabendvalue:=1;
+  form1.show;
+  form1.formstyle:=fsstayontop;
+end;
+
+procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+var pos: TPoint;
+begin
+  GetCursorPos(pos);
+  Label3.Caption:=IntToStr(pos.X);
+  Label4.Caption:=IntToStr(pos.Y);
+end;
+
+
+end.
