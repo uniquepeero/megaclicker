@@ -1,5 +1,5 @@
 # megaclicker
-First GUI experience on Pascal(Delphi) from 2015
+First GUI experience on Pascal (Delphi) from 2015
 
 Clicker with cursor position controller
 
